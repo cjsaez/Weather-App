@@ -42,7 +42,7 @@ object AppModule {
             context,
             AppDataBase::class.java,
             Constants.DB_NAME
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
     @Provides
     @Singleton

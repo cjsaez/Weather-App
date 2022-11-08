@@ -8,7 +8,7 @@ import com.musalatask.weatherapp.framework.room.dao.CoordinatesDao
 import com.musalatask.weatherapp.framework.room.entity.CityWeatherEntity
 import com.musalatask.weatherapp.framework.room.entity.CoordinatesEntity
 
-@Database(entities = [CityWeatherEntity::class, CoordinatesEntity::class], version = 1)
+@Database(entities = [CityWeatherEntity::class, CoordinatesEntity::class], version = 2)
 @TypeConverters(com.musalatask.weatherapp.framework.room.TypeConverters::class)
 abstract class AppDataBase : RoomDatabase() {
 
