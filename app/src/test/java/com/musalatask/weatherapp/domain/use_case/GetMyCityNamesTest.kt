@@ -1,6 +1,6 @@
 package com.musalatask.weatherapp.domain.use_case
 
-import com.musalatask.weatherapp.data.model.CityWeather
+import com.musalatask.weatherapp.domain.model.CityWeather
 import com.musalatask.weatherapp.data.repository.FakeCityWeatherRepository
 import junit.framework.TestCase
 import kotlinx.coroutines.launch
@@ -25,7 +25,7 @@ class GetMyCityNamesTest{
     }
 
     @Test
-    fun get_full_flow_with_all_cities_correct_use_case() = runTest{
+    fun `get full flow with all cities correct use case`() = runTest{
 
         val collectJob = launch(UnconfinedTestDispatcher()) {
             getCitiesByText().collect {
@@ -58,8 +58,7 @@ class GetMyCityNamesTest{
                 cityName = "Oslo",
                 lastUpdated = null,
                 latitude = 59.9133301,
-                longitude = 10.7389701,
-                coordinatesName = null
+                longitude = 10.7389701
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -84,8 +83,7 @@ class GetMyCityNamesTest{
                 cityName = "Toronto",
                 lastUpdated = null,
                 latitude = 43.6534817,
-                longitude = -79.3839347,
-                coordinatesName = null
+                longitude = -79.3839347
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -110,8 +108,7 @@ class GetMyCityNamesTest{
                 cityName = "Ontario",
                 lastUpdated = null,
                 latitude = 34.065846,
-                longitude = -117.6484304,
-                coordinatesName = null
+                longitude = -117.6484304
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -136,8 +133,7 @@ class GetMyCityNamesTest{
                 cityName = "Sofia",
                 lastUpdated = null,
                 latitude = 42.6977028,
-                longitude = 23.3217359,
-                coordinatesName = null
+                longitude = 23.3217359
             )
         )
     }

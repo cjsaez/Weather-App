@@ -1,10 +1,9 @@
 package com.musalatask.weatherapp.domain.use_case
 
 import com.musalatask.weatherapp.common.Resource
-import com.musalatask.weatherapp.data.model.CityWeather
+import com.musalatask.weatherapp.domain.model.CityWeather
 import com.musalatask.weatherapp.data.repository.FakeCityWeatherRepository
 import junit.framework.TestCase
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
@@ -27,7 +26,7 @@ class GetMyCurrentCityWeatherTest{
     }
 
     @Test
-    fun get_exist_weather_by_city_coordinates_correct_use_case() = runTest{
+    fun `get exist weather by city coordinates correct use case`() = runTest{
 
         val getMyCurrentCityWeather = getMyCurrentCityWeather(latitude = 42.6977028, longitude = 23.3217359)
 
@@ -43,7 +42,7 @@ class GetMyCurrentCityWeatherTest{
     }
 
     @Test
-    fun get_not_exist_weather_by_city_coordinates_correct_use_case() = runTest{
+    fun `get not exist weather by city coordinates correct use case`() = runTest{
 
         val getMyCurrentCityWeather = getMyCurrentCityWeather(latitude = 23.4535, longitude = -98.31)
 
@@ -80,8 +79,7 @@ class GetMyCurrentCityWeatherTest{
                 cityName = "Oslo",
                 lastUpdated = null,
                 latitude = 59.9133301,
-                longitude = 10.7389701,
-                coordinatesName = null
+                longitude = 10.7389701
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -106,8 +104,7 @@ class GetMyCurrentCityWeatherTest{
                 cityName = "Toronto",
                 lastUpdated = null,
                 latitude = 43.6534817,
-                longitude = -79.3839347,
-                coordinatesName = null
+                longitude = -79.3839347
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -132,8 +129,7 @@ class GetMyCurrentCityWeatherTest{
                 cityName = "Ontario",
                 lastUpdated = null,
                 latitude = 34.065846,
-                longitude = -117.6484304,
-                coordinatesName = null
+                longitude = -117.6484304
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -158,8 +154,7 @@ class GetMyCurrentCityWeatherTest{
                 cityName = "Sofia",
                 lastUpdated = null,
                 latitude = 42.6977028,
-                longitude = 23.3217359,
-                coordinatesName = null
+                longitude = 23.3217359
             )
         )
     }

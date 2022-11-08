@@ -1,7 +1,7 @@
 package com.musalatask.weatherapp.domain.use_case
 
-import com.musalatask.weatherapp.data.model.CityWeather
-import com.musalatask.weatherapp.data.model.Coordinates
+import com.musalatask.weatherapp.domain.model.CityWeather
+import com.musalatask.weatherapp.domain.model.Coordinates
 import com.musalatask.weatherapp.data.repository.FakeCityWeatherRepository
 import com.musalatask.weatherapp.data.repository.FakeGeocodingRepository
 import junit.framework.Assert.assertTrue
@@ -29,7 +29,7 @@ class DeleteCityTest {
     }
 
     @Test
-    fun delete_city_correct_use_case() = runBlocking {
+    fun `delete city correct use case`() = runBlocking {
 
         assertTrue("Initial count of items in GeocodingRepository is 4",
             fakeGeocodingRepository.coordinates.size == 4)
@@ -56,28 +56,32 @@ class DeleteCityTest {
             Coordinates(
                 latitude = 59.9133301,
                 longitude = 10.7389701,
-                cityName = "Oslo"
+                cityName = "Oslo",
+                names = mutableListOf()
             )
         )
         fakeGeocodingRepository.coordinates.add(
             Coordinates(
                 latitude = 43.6534817,
                 longitude = -79.3839347,
-                cityName = "Toronto"
+                cityName = "Toronto",
+                names = mutableListOf()
             )
         )
         fakeGeocodingRepository.coordinates.add(
             Coordinates(
                 latitude = 34.065846,
                 longitude = -117.6484304,
-                cityName = "Ontario"
+                cityName = "Ontario",
+                names = mutableListOf()
             )
         )
         fakeGeocodingRepository.coordinates.add(
             Coordinates(
                 latitude = 42.6977028,
                 longitude = 23.3217359,
-                cityName = "Sofia"
+                cityName = "Sofia",
+                names = mutableListOf()
             )
         )
     }
@@ -104,8 +108,7 @@ class DeleteCityTest {
                 cityName = "Oslo",
                 lastUpdated = null,
                 latitude = 59.9133301,
-                longitude = 10.7389701,
-                coordinatesName = null
+                longitude = 10.7389701
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -130,8 +133,7 @@ class DeleteCityTest {
                 cityName = "Toronto",
                 lastUpdated = null,
                 latitude = 43.6534817,
-                longitude = -79.3839347,
-                coordinatesName = null
+                longitude = -79.3839347
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -156,8 +158,7 @@ class DeleteCityTest {
                 cityName = "Ontario",
                 lastUpdated = null,
                 latitude = 34.065846,
-                longitude = -117.6484304,
-                coordinatesName = null
+                longitude = -117.6484304
             )
         )
         fakeCityWeatherRepository.cityWeathers.add(
@@ -182,8 +183,7 @@ class DeleteCityTest {
                 cityName = "Sofia",
                 lastUpdated = null,
                 latitude = 42.6977028,
-                longitude = 23.3217359,
-                coordinatesName = null
+                longitude = 23.3217359
             )
         )
     }
