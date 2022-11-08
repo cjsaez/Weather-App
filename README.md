@@ -14,7 +14,7 @@ The app displays the current city weather condition and allows the user to searc
 
 ### OpenWeather API key
 
-Weather App uses the OpenWeather API to get the desired city weather. To use the API, you will need to obtain a free developer API key. See the OpenWeather API Documentation for instructions.
+Weather App uses the [OpenWeather API](https://openweathermap.org/guide) to get the desired city weather. To use the API, you will need to obtain a free developer API key. See the [OpenWeather API Documentation](https://openweathermap.org/appid) for instructions.
 
 Once you have the key, add this line to the `gradle.properties` file, either in your user home directory (usually `~/.gradle/gradle.properties` on Linux and Mac) or in the project's root folder:
 
@@ -28,7 +28,7 @@ To build the app, use the gradlew build command or use "Import Project" in Andro
 
 ## Architecture
 
-The implemented architecture is a Clean Architecture which take into account the recommendations laid out in the Guide to App Architecture and take advantages of Jetpack libraries. This architecture is composed of three layers: presentation or UI, domain and data.
+The implemented architecture is a Clean Architecture which take into account the recommendations laid out in the [Guide to App Architecture](https://developer.android.com/topic/architecture/intro) and take advantages of [Jetpack libraries](https://developer.android.com/jetpack/androidx/explorer). This architecture is composed of three layers: presentation or UI, domain and data.
 
 - UI layer: The role of the UI is to display the application data on the screen and also to serve as the primary point of user interaction. An UDF (Unidirectional Data Flow) is implemented between Fragments and ViewModels. The ViewModel holds and exposes the state to be consumed by the UI, the UI notifies the ViewModel of user events, the ViewModel handles the user actions and updates the state, and the updated state is fed back to the UI to render.
 
@@ -48,8 +48,8 @@ The implemented architecture is a Clean Architecture which take into account the
 
 - For internet connection detection is use WorkManager.
 
-UI tests are written with Espresso and unit tests use Junit4 with Mockito when necessary.
+- For unit tests `Junit4` is used and `okhttp3:mockwebserver` when necessary.
 
 ## Kotlin
 
-The app is written in Kotlin. Asynchronous tasks are handled with coroutines. Coroutines allow for simple and safe management of one-shot operations as well as building and consuming streams of data using Kotlin Flows.
+The app is written in Kotlin. Asynchronous tasks are handled with coroutines. [Coroutines](https://developer.android.com/kotlin/coroutines) allow for simple and safe management of one-shot operations as well as building and consuming streams of data using [Kotlin Flows](https://developer.android.com/kotlin/flow).
