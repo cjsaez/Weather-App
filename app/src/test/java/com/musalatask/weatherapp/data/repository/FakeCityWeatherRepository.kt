@@ -1,7 +1,7 @@
 package com.musalatask.weatherapp.data.repository
 
 import com.musalatask.weatherapp.common.Resource
-import com.musalatask.weatherapp.data.model.CityWeather
+import com.musalatask.weatherapp.domain.model.CityWeather
 import com.musalatask.weatherapp.domain.repository.CityWeatherRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -12,7 +12,7 @@ class FakeCityWeatherRepository : CityWeatherRepository {
 
     override fun getCityWeather(cityName: String): Flow<Resource<CityWeather?>> {
         return flow {
-            val cityWeather = cityWeathers.find { it.cityName == cityName || it.coordinatesName == cityName }
+            val cityWeather = cityWeathers.find { it.cityName == cityName }
             emit(
                 if (cityWeather == null) Resource.Error(6)
                 else Resource.Success(cityWeather)
@@ -39,7 +39,6 @@ class FakeCityWeatherRepository : CityWeatherRepository {
     }
 
     override fun getCityWeathersByText(text: String): Flow<List<CityWeather>> {
-        return flow { cityWeathers.filter { it.cityName.lowercase().contains(text.lowercase()) ||
-                it.coordinatesName != null && it.coordinatesName!!.lowercase().contains(text.lowercase()) } }
+        return flow { cityWeathers.filter { it.cityName.lowercase().contains(text.lowercase()) } }
     }
 }

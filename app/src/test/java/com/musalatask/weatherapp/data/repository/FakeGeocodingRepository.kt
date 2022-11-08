@@ -1,7 +1,7 @@
 package com.musalatask.weatherapp.data.repository
 
 import com.musalatask.weatherapp.common.Resource
-import com.musalatask.weatherapp.data.model.Coordinates
+import com.musalatask.weatherapp.domain.model.Coordinates
 import com.musalatask.weatherapp.domain.repository.GeocodingRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
